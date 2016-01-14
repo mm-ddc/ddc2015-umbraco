@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<section class="grid special-background">
+    <div class="container">
+        <h1>@Umbraco.Field("titlePileTopOverview")</h1>
+        <P>
+            @Umbraco.Field("descriptionPileTopOverview")
+        </P>
+    </div>
+</section>
+<section class="grid">
+    <div class="container">
+        <ul class="project-overview">
+
+                @foreach (var pile in Model.Content.Children.OrderBy("id desc"))
+                {
+                    <li class="project-overview--list-item">
+                        <div class="project-overview--list-item--card main-section">
+                            <a href="@pile.Url" title="@pile.GetPropertyValue("titlePileTopDetail")">
+                                @{
+                                    if (pile.HasValue("imagePileTopDetail"))
+                                    {
+                                        var dynamicMediaItem = Umbraco.TypedMedia((int)pile.GetPropertyValue("imagePileTopDetail"));
+                                        <img src="@dynamicMediaItem.GetCropUrl(824, 618)" alt="@dynamicMediaItem.Name" />
+                                    }
+                                    else
+                                    {
+                                        <p>add image</p>
+                                    }
+                                }
+                                <div class="project-overview--list-item--card__content">
+                                    <h2>@pile.GetPropertyValue("titlePileTopDetail")</h2>
+                                    <p>
+                                        @pile.GetPropertyValue("pileTopOverzicht")
+                                    </p>                               
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                                    }
+        </ul>
+    </div>
+</section>

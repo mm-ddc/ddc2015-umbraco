@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+<article>
+    <div class="grid special-background">
+        <div class="container">
+            <h1>@CurrentPage.titleServicesDetail</h1>
+            <P>
+                @CurrentPage.subtitleServicesDetail
+        </P>
+    </div>
+</div>
+<div class="container main-content">
+    <figure>
+        @{
+            if (CurrentPage.HasValue("imageServicesDetail"))
+            {
+                var dynamicMediaItem = Umbraco.TypedMedia((int)CurrentPage.imageServicesDetail);
+                <img src="@dynamicMediaItem.GetCropUrl(168, 168)" alt="@dynamicMediaItem.Name" />
+            }
+        }
+        <figcaption>
+            @CurrentPage.imagecaptionServicesDetail
+        </figcaption>
+    </figure>
+    @CurrentPage.contentintroServicesDetail
+    @if (CurrentPage.HasValue("blockquoteServicesDetail"))
+    {
+        <blockquote>
+            @CurrentPage.blockquoteServicesDetail
+        </blockquote>
+    }
+    @CurrentPage.contentServicesDetail
+</div>
+</article>

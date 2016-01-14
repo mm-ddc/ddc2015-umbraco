@@ -1,0 +1,94 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+@{
+    string idx = "";
+
+
+    if (!string.IsNullOrEmpty(Request.QueryString["idx"]))
+    {
+        idx = Request.QueryString["idx"];
+
+    }
+
+}
+<section class="grid special-background">
+    <div class="container">
+        <h1>@Umbraco.Field("titleProductsOverview")</h1>
+        <P>
+            @Umbraco.Field("descriptionProductsOverview")
+        </P>
+    </div>
+</section>
+<section class="grid">
+    <div class="container">
+        <div class="overview-filter">
+            <label for="filter-result">@Umbraco.GetDictionaryValue("Filter")</label>
+            @Html.Partial("_selectboxProduct")
+        </div>
+        <ul class="project-overview">
+            @if (idx == "" || idx == "All")
+            {
+                foreach (var project in Model.Content.Children.OrderBy("id desc"))
+                {
+                    <li class="project-overview--list-item">
+                        <div class="project-overview--list-item--card main-section">
+                            <a href="@project.Url" title="@project.GetPropertyValue("titleProjectDetail")">   
+                                @{
+                                    if (project.HasValue("imageProjectDetail"))
+                                    {
+                                        var dynamicMediaItem = Umbraco.TypedMedia((int)project.GetPropertyValue("imageProjectDetail"));
+                                        <img src="@dynamicMediaItem.GetCropUrl(824, 618)" alt="@dynamicMediaItem.Name" />
+                                    }
+                                    else
+                                    {
+                                        <p>add image</p>
+                                    }
+                                } 
+                                                                   
+                                
+                                <div class="project-overview--list-item--card__content">
+                                    <h2>@project.GetPropertyValue("titleProjectDetail")</h2>                                    
+                                    <p> @project.GetPropertyValue("projectsintro")</p>
+                                   
+                                    <span class="project-overview--list-item--card__tag">@project.GetPropertyValue("projecttypeProjectDetail")</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                }
+            }
+
+            else
+            {
+                foreach (var project in Model.Content.Children.Where(c => idx.Equals(c.GetPropertyValue<string>("projecttypeProjectDetail"), StringComparison.OrdinalIgnoreCase)).OrderBy("id desc"))
+                {
+                    <li class="project-overview--list-item">
+                        <div class="project-overview--list-item--card main-section">
+                            <a href="@project.Url" title="@project.GetPropertyValue("titleProjectDetail")">
+                                @{
+                                    if (project.HasValue("imageProjectDetail"))
+                                    {
+                                        var dynamicMediaItem = Umbraco.TypedMedia((int)project.GetPropertyValue("imageProjectDetail"));
+                                        <img src="@dynamicMediaItem.GetCropUrl(10, 10)" alt="@dynamicMediaItem.Name" />
+                                    }
+                                } 
+                                <img src="@project.GetPropertyValue("imageProjectDetail")" alt="@project.GetPropertyValue("imagecaptionProjectDetail")" />
+                                <div class="project-overview--list-item--card__content">
+                                    <h2>@project.GetPropertyValue("titleProjectDetail")</h2>
+                                    <p>
+                                        @project.GetPropertyValue("contentintroProjectDetail")
+                                    </p>
+                                    <span class="project-overview--list-item--card__tag">@project.GetPropertyValue("projecttypeProjectDetail")</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                }
+            }
+
+
+        </ul>
+    </div>
+</section>

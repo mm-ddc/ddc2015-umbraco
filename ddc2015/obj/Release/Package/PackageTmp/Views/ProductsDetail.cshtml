@@ -1,0 +1,49 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+<article>
+    <div class="grid special-background">
+        <div class="container">
+            <h1>@CurrentPage.titleProjectDetail</h1>
+            <P>
+                @CurrentPage.subtitleProjectsDetail
+        </P>
+        <dl class="main-section">
+            <dt>Client</dt>
+            <dd>@CurrentPage.clientProjectsDetail</dd>
+            <dt>Location</dt>
+            <dd>@CurrentPage.locationProjectDetail</dd>
+            <dt>Date</dt>
+            <dd>@CurrentPage.dateStartProjectDetail.ToString("dd/MM/yyyy")  -- @CurrentPage.dateEndProjectDetail.ToString("dd/MM/yyyy")</dd>
+            <dt>Foundation</dt>
+            <dd>@CurrentPage.foundationProjectsDetail</dd>
+            <dt>Equipment</dt>
+            <dd>@CurrentPage.equipmentProjectDetail</dd>
+        </dl>
+    </div>
+</div>
+<div class="container main-content">
+    <figure>
+        @{
+            if (CurrentPage.HasValue("imageProjectDetail"))
+            {
+                var dynamicMediaItem = Umbraco.TypedMedia((int)CurrentPage.imageProjectDetail);
+                <img src="@dynamicMediaItem.GetCropUrl(168, 168)" alt="@dynamicMediaItem.Name" />
+            }
+        }        
+        <figcaption>
+            @CurrentPage.imagecaptionProjectDetail
+        </figcaption>
+    </figure>
+    @CurrentPage.contentintroProjectDetail
+
+    @if (CurrentPage.HasValue("blockquoteProjectDetail"))
+    { 
+    <blockquote>
+        @CurrentPage.blockquoteProjectDetail
+    </blockquote>
+    }
+    @CurrentPage.contentProjectDetail
+</div>
+</article>

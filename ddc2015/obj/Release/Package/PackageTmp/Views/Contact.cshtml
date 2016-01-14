@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+	<article>
+			<div class="grid special-background">	
+				<div class="container">
+					<h1>Dutch Drilling Consultants</h1>
+				</div>				
+			</div>
+			<div class="container">
+				<div class="grid contact">
+					<div class="" itemscope itemtype="http://schema.org/LocalBusiness">
+						<h2><span itemprop="name">DDC Office</span></h2>
+						<div itemscope itemtype="http://schema.org/PostalAddress">
+							<span itemprop="streetAddress">
+			   				Coenecoop 3 B4
+			    		</span>   
+			    		<span itemprop="postalCode">2741 PG</span>
+		    		 	<span itemprop="addressLocality">Waddinxveen</span>
+							<span>tel: </span><a itemprop="telephone" href="tel:+31(0)182-634625">+31(0)182-634625</a>					
+						</div>
+						<div id="mapPostalAddress" data-constructor="GoogleMap" data-lat="52.033804" data-lon="4.649951" data-title="DDC Headquarter">
+						</div>
+					</div>
+					<div class="" itemscope itemtype="http://schema.org/LocalBusiness">
+						<h2><span itemprop="name">DDC Correspondence</span></h2>
+						<div itemscope itemtype="http://schema.org/PostalAddress">
+							<span>
+			   				PO Box 12
+			    		</span>   
+			    		<span itemprop="postalCode">2740 AA</span>
+		    		 	<span itemprop="addressLocality">Waddinxveen</span>
+							<span>email: </span><a itemprop="email" href="mailto:info@ddcbv.com">info@ddcbv.com</a>
+						</div>
+					</div>
+					<div class="" itemscope itemtype="http://schema.org/LocalBusiness">
+					<h2><span itemprop="name">DDC Yard</span></h2>
+						<div itemscope itemtype="http://schema.org/PostalAddress">
+							<span itemprop="streetAddress">
+			   				Ringdijk 486
+			    		</span>   
+			    		<span itemprop="postalCode">2983 GS</span>
+		    		 	<span itemprop="addressLocality">Ridderkerk</span>
+		    		 	<span>Quayside km 990</span>
+						</div>
+							<div id="mapYardAddress" data-constructor="GoogleMap" data-lat="51.889647" data-lon="4.602093" data-title="DDC Yard Address">
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+@section googlemap {
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3yKE7A69r8BZR30_5bXdK73iRSJKm6I4&callback=ddc.component.GoogleMap" type="text/javascript" async defer></script>
+    }

@@ -1,0 +1,121 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<section class="grid">
+    <div class="container">
+        <div class="carousel" role="region" aria-label="Dutch drilling crafts" data-constructor="Carousel">
+            <ul class="carousel--slide-list" itemscope itemtype="http://schema.org/ImageGallery">
+                <li class="carousel--slide-list--slide current">
+                    <div>
+                        <h1><span>"Market leader drilling </span> <span>Offshore wind foundations"</span></h1>
+                        <picture itemprop="associatedMedia" itemscope itemtype="http://schema.org/MediaObject">
+                            <source media="(min-width:768px)"
+                                    srcset="@Url.Content("~/Content/images/site-assets/wind-mills-large.jpg"),
+					@Url.Content("~/Content/images/site-assets/wind-mills-large2x.jpg 2x")">
+                            <source media="(min-width:400px)"
+                                    srcset="@Url.Content("~/Content/images/site-assets/wind-mills-medium.jpg"),
+					@Url.Content("~/Content/images/site-assets/wind-mills-medium2x.jpg 2x")">
+
+                            <img srcset="@Url.Content("~/Content/images/site-assets/wind-mills-small.jpg") , @Url.Content("~/Content/images/site-assets/wind-mills-medium.jpg 2x")" alt="wind mills offshore" sizes="100vw" itemprop="http://schema.org/image" />
+                        </picture>
+                    </div>
+                </li>
+                <li class="carousel--slide-list--slide">
+                    <h1><span>"Drive drill</span> <span>near shore projects"</span></h1>
+                    <picture itemprop="associatedMedia" itemscope itemtype="http://schema.org/MediaObject">
+                        <source media="(min-width:768px)"
+                                srcset="@Url.Content("~/Content/images/site-assets/pile-drill-large.jpg"),
+					@Url.Content("~/Content/images/site-assets/pile-drill-large2x.jpg 2x")">
+                        <source media="(min-width:400px)"
+                                srcset="@Url.Content("~/Content/images/site-assets/pile-drill-medium.jpg"),
+					@Url.Content("~/Content/images/site-assets/pile-drill-medium2x.jpg 2x")">
+
+                        <img srcset="@Url.Content("~/Content/images/site-assets/pile-drill-small.jpg") , @Url.Content("~/Content/images/site-assets/pile-drill-medium.jpg 2x")" alt="pile drilling at sea" sizes="100vw" itemprop="http://schema.org/image" />
+                    </picture>
+                </li>
+                <li class="carousel--slide-list--slide">
+                    <h1><span>"On shore</span> <span>Shaft drilling"</span></h1>
+                    <picture itemprop="associatedMedia" itemscope itemtype="http://schema.org/MediaObject">
+                        <source media="(min-width:768px)"
+                                srcset="@Url.Content("~/Content/images/site-assets/pile-drill-sea-large.jpg"),
+					@Url.Content("~/Content/images/site-assets/pile-drill-sea-large2x.jpg 2x")">
+                        <source media="(min-width:400px)"
+                                srcset="@Url.Content("~/Content/images/site-assets/pile-drill-sea-medium.jpg"),
+					@Url.Content("~/Content/images/site-assets/pile-drill-sea-medium2x.jpg 2x")">
+
+                        <img srcset="@Url.Content("~/Content/images/site-assets/pile-drill-sea-small.jpg") , @Url.Content("~/Content/images/site-assets/pile-drill-sea-medium.jpg 2x")" alt="pile drilling sea" sizes="100vw" itemprop="http://schema.org/image" />
+                    </picture>
+                </li>
+                <li class="carousel--slide-list--slide">
+                    <h1><span>"Off Shore</span> <span>Oil and Gas"</span></h1>
+                    <picture itemprop="associatedMedia" itemscope itemtype="http://schema.org/MediaObject">
+                        <source media="(min-width:768px)"
+                                srcset="@Url.Content("~/Content/images/site-assets/pile-drill-sea-large.jpg"),
+					@Url.Content("~/Content/images/site-assets/pile-drill-sea-large2x.jpg 2x")">
+                        <source media="(min-width:400px)"
+                                srcset="@Url.Content("~/Content/images/site-assets/pile-drill-sea-medium.jpg"),
+					@Url.Content("~/Content/images/site-assets/pile-drill-sea-medium2x.jpg 2x")">
+
+                        <img srcset="@Url.Content("~/Content/images/site-assets/pile-drill-sea-small.jpg") , @Url.Content("~/Content/images/site-assets/pile-drill-sea-medium.jpg 2x")" alt="pile drilling sea" sizes="100vw" itemprop="http://schema.org/image" />
+                    </picture>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="grid special-background">
+    <div class="container">
+        <ul class="main-list">
+            <li class="col-1-2">
+                <div class="main-section">
+                    <h3><i class="icon-lifebuoy"></i>@Umbraco.Field("titleServices")</h3>
+                    <p>@Umbraco.Field("descriptionServices")</p>
+                    <a href="#" title="read more services">read more</a>
+                </div>
+            </li>
+            <li class="col-1-2">
+                <div class="main-section">
+                    <h3><i class="icon-cogs"></i>@Umbraco.Field("titleProducts")</h3>
+                    <p>@Umbraco.Field("descriptionProducts")</p>
+                    <a href="#" title="read more products">read more</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="grid">
+    <div class="container">
+        <ul class="main-list">
+            <li class="col-1">
+                <div class="main-section">
+                    <h3><i class="icon-loop2"></i>@Umbraco.Field("titlePileTopDrilling")</h3>
+                    <p>@Umbraco.Field("descriptionPileTopDrilling")</p>
+                    <a href="#" title="read more services">read more</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="grid organization">
+    <div class="container">
+        <ul class="organization-list">
+            <li itemscope itemtype="http://schema.org/Organization">
+                <a href="https://www.akersolutions.com/" title="aker solutions">
+                    <img src="@Umbraco.Field("homeimagepartnerlogo1")" alt="@Umbraco.Field("homeimagepartnerlogotext1")" itemprop="logo">
+                </a>
+            </li>
+            <li itemscope itemtype="http://schema.org/Organization">
+                <a href="http://www.haeny.com/en/" title="hany grouting">
+                    <img src="@Umbraco.Field("homeimagepartnerlogo2")" alt="@Umbraco.Field("homeimagepartnerlogotext2")" itemprop="logo">
+                </a>
+            </li>
+            <li itemscope itemtype="http://schema.org/Organization">
+                <a href="http://www.klemm-bohrtechnik.de/startseite/" title="klemm bohrtechnik">
+                    <img src="@Umbraco.Field("homeimagepartnerlogo3")" alt="@Umbraco.Field("homeimagepartnerlogotext3")" itemprop="logo">
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+<article>
+    <div class="grid special-background">
+        <div class="container">
+            <h1>@CurrentPage.titleContentPage</h1>
+            @if (@CurrentPage.descriptionContentPage != null) {
+            <p>
+                @CurrentPage.descriptionContentPage
+        </p>}
+    </div>
+</div>
+<div class="container main-content">
+   @CurrentPage.contentContentPage
+    </div>
+</article>

@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<section class="grid special-background">
+    <div class="container">
+        <h1>@Umbraco.Field("titleServicesOverview")</h1>
+        <P>
+            @Umbraco.Field("descriptionServicesOverview")
+        </P>
+    </div>
+</section>
+<section class="grid">
+    <div class="container">        
+        <ul class="project-overview">
+  
+                @foreach (var service in Model.Content.Children.OrderBy("id desc"))
+                {
+                    <li class="project-overview--list-item">
+                        <div class="project-overview--list-item--card main-section">
+                            <a href="@service.Url" title="@service.GetPropertyValue("titleServicesOverview")">
+                                @{
+                                    if (service.HasValue("imageServicesDetail"))
+                                    {
+                                        var dynamicMediaItem = Umbraco.TypedMedia((int)service.GetPropertyValue("imageServicesDetail"));
+                                        <img src="@dynamicMediaItem.GetCropUrl(824, 618)" alt="@dynamicMediaItem.Name" />
+                                    }
+                                    else
+                                    {
+                                        <p>no image available</p>
+                                    }
+                                }
+<div class="project-overview--list-item--card__content">
+                                    <h2>@service.GetPropertyValue("titleServicesDetail")</h2>
+                                    <p>
+                                        @service.GetPropertyValue("contentintroServicesDetail")
+                                    </p>
+                                    <span class="project-overview--list-item--card__tag">@service.GetPropertyValue("servicetype")</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                                
+                                    }
+        </ul>
+    </div>
+</section>

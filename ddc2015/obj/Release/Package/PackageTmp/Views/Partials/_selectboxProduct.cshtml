@@ -1,0 +1,19 @@
+﻿<script>
+    var ddc = ddc || {};
+    ddc.getUrl = function (value) {
+        var host = window.location.host,
+            pathname = window.location.pathname,
+            url = host + pathname;
+
+        return 'http://' + url + '?idx=' + value;
+    }
+</script>
+
+<select id="filter-result" name="filter-result" onchange="window.location=ddc.getUrl(this.value)">
+    <option value="">Select...</option>
+    <option>All</option>
+    <option>Renewables</option>  
+    <option>Onshore</option>
+    <option>Nearshore</option>
+    <option>Offshore</option>
+</select>
