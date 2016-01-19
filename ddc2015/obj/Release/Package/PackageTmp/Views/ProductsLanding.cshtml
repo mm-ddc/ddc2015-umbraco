@@ -43,16 +43,15 @@
                                     }
                                     else
                                     {
-                                        <p>no image available</p>
+                                        <p>add image</p>
                                     }
                                 } 
                                                                    
                                 
                                 <div class="project-overview--list-item--card__content">
-                                    <h2>@project.GetPropertyValue("titleProjectDetail")</h2>
-                                    <p>
-                                        @project.GetPropertyValue("projectintro")
-                                    </p>
+                                    <h2>@project.GetPropertyValue("titleProjectDetail")</h2>                                    
+                                    <p> @project.GetPropertyValue("projectsintro")</p>
+                                   
                                     <span class="project-overview--list-item--card__tag">@project.GetPropertyValue("projecttypeProjectDetail")</span>
                                 </div>
                             </a>

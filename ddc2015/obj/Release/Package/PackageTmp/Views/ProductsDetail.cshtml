@@ -10,16 +10,31 @@
                 @CurrentPage.subtitleProjectsDetail
         </P>
         <dl class="main-section">
-            <dt>Client</dt>
-            <dd>@CurrentPage.clientProjectsDetail</dd>
-            <dt>Location</dt>
-            <dd>@CurrentPage.locationProjectDetail</dd>
-            <dt>Date</dt>
-            <dd>@CurrentPage.dateStartProjectDetail.ToString("dd/MM/yyyy")  -- @CurrentPage.dateEndProjectDetail.ToString("dd/MM/yyyy")</dd>
-            <dt>Foundation</dt>
-            <dd>@CurrentPage.foundationProjectsDetail</dd>
-            <dt>Equipment</dt>
-            <dd>@CurrentPage.equipmentProjectDetail</dd>
+            @if (CurrentPage.HasValue("clientProjectsDetail"))
+            {
+                <dt>Client</dt>
+                <dd>@CurrentPage.clientProjectsDetail</dd>
+            }
+            @if (CurrentPage.HasValue("locationProjectDetail"))
+            {
+                <dt>Location</dt>
+                <dd>@CurrentPage.locationProjectDetail</dd>
+            }
+            @if (CurrentPage.HasValue("dateStartProjectDetail"))
+            {
+                <dt>Date</dt>
+                <dd>@CurrentPage.dateStartProjectDetail.ToString("dd/MM/yyyy")  -- @CurrentPage.dateEndProjectDetail.ToString("dd/MM/yyyy")</dd>
+            }
+            @if (CurrentPage.HasValue("foundationProjectsDetail"))
+            {
+                <dt>Foundation</dt>
+                <dd>@CurrentPage.foundationProjectsDetail</dd>
+            }
+            @if (CurrentPage.HasValue("equipmentProjectDetail"))
+            {
+                <dt>Equipment</dt>
+                <dd>@CurrentPage.equipmentProjectDetail</dd>
+            }
         </dl>
     </div>
 </div>
